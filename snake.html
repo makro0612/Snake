@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="snake.css">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+
+        </div>
+        <div class="mid">
+            <button onclick="stop()">
+                Klikk!
+            </button>
+            <button onclick="randomApple()">
+                Klikk for rød
+            </button>
+        </div>
+        <div class="set">
+
+        </div>
+    </nav>
+
+    <main>
+        <aside>
+
+        </aside>
+
+        <div class="cont">
+
+            <div class="gridcont">
+    
+                <div class="maingrid">
+                    <div id="1" class="griditem"></div>
+                    <div id="2" class="griditem"></div>
+                    <div id="3" class="griditem"></div>
+                    <div id="4" class="griditem"></div>
+                    <div id="5" class="griditem"></div>
+                    <div id="6" class="griditem"></div>
+                    <div id="7" class="griditem"></div>
+                    <div id="8" class="griditem"></div>
+                    <div id="9" class="griditem"></div>
+                    <div id="10" class="griditem"></div>
+                    <div id="11" class="griditem"></div>
+                    <div id="12" class="griditem"></div>
+                    <div id="13" class="griditem"></div>
+                    <div id="14" class="griditem"></div>
+                    <div id="15" class="griditem"></div>
+                    <div id="16" class="griditem"></div>
+                    <div id="17" class="griditem"></div>
+                    <div id="18" class="griditem"></div>
+                    <div id="19" class="griditem"></div>
+                    <div id="20" class="griditem"></div>
+                    <div id="21" class="griditem"></div>
+                    <div id="22" class="griditem"></div>
+                    <div id="23" class="griditem"></div>
+                    <div id="24" class="griditem"></div>
+                    <div id="25" class="griditem"></div>
+                    <div id="26" class="griditem"></div>
+                    <div id="27" class="griditem"></div>
+                    <div id="28" class="griditem"></div>
+                    <div id="29" class="griditem"></div>
+                    <div id="30" class="griditem"></div>
+                    <div id="31" class="griditem"></div>
+                    <div id="32" class="griditem"></div>
+                    <div id="33" class="griditem"></div>
+                    <div id="34" class="griditem"></div>
+                    <div id="35" class="griditem"></div>
+                    <div id="36" class="griditem"></div>
+                    <div id="37" class="griditem"></div>
+                    <div id="38" class="griditem"></div>
+                    <div id="39" class="griditem"></div>
+                    <div id="40" class="griditem"></div>
+                    <div id="41" class="griditem"></div>
+                    <div id="42" class="griditem"></div>
+                    <div id="43" class="griditem"></div>
+                    <div id="44" class="griditem"></div>
+                    <div id="45" class="griditem"></div>
+                    <div id="46" class="griditem"></div>
+                    <div id="47" class="griditem"></div>
+                    <div id="48" class="griditem"></div>
+                    <div id="49" class="griditem"></div>
+                    <div id="50" class="griditem"></div>
+                    <div id="51" class="griditem"></div>
+                    <div id="52" class="griditem"></div>
+                    <div id="53" class="griditem"></div>
+                    <div id="54" class="griditem"></div>
+                    <div id="55" class="griditem"></div>
+                    <div id="56" class="griditem"></div>
+                    <div id="57" class="griditem"></div>
+                    <div id="58" class="griditem"></div>
+                    <div id="59" class="griditem"></div>
+                    <div id="60" class="griditem"></div>
+                    <div id="61" class="griditem"></div>
+                    <div id="62" class="griditem"></div>
+                    <div id="63" class="griditem"></div>
+                    <div id="64" class="griditem"></div>
+                    <div id="65" class="griditem"></div>
+                    <div id="66" class="griditem"></div>
+                    <div id="67" class="griditem"></div>
+                    <div id="68" class="griditem"></div>
+                    <div id="69" class="griditem"></div>
+                    <div id="70" class="griditem"></div>
+                    <div id="71" class="griditem"></div>
+                    <div id="72" class="griditem"></div>
+                    <div id="73" class="griditem"></div>
+                    <div id="74" class="griditem"></div>
+                    <div id="75" class="griditem"></div>
+                    <div id="76" class="griditem"></div>
+                    <div id="77" class="griditem"></div>
+                    <div id="78" class="griditem"></div>
+                    <div id="79" class="griditem"></div>
+                    <div id="80" class="griditem"></div>
+                    <div id="81" class="griditem"></div>
+                    <div class="snake" id="head"></div>
+    
+                </div>
+            </div>
+        </div>
+        <aside>
+
+        </aside>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+
+const head = document.getElementById("head");
+
+let mainInterval = setInterval(move, 10);
+
+
+let fartx = 0;
+let farty = 0;
+
+function randomApple() {
+    let applenr = Math.floor(Math.random() * 81)
+    let apple = document.getElementById(applenr.toString())
+    apple.style.backgroundColor = "red"
+}
+
+function move() {
+    let currentLeft = parseFloat(window.getComputedStyle(head).left) || 0;
+    let newLeft = currentLeft + fartx;
+    head.style.left = newLeft + "px";
+
+    let currentTop = parseFloat(window.getComputedStyle(head).top) || 0;
+    let newTop = currentTop + farty;
+    head.style.top = newTop + "px";
+
+    if (newLeft + 30 > 360 || newLeft < 0 || newTop + 30 > 360 || newTop < 0) {
+        stop();
+    }
+}
+
+function changeXL() {
+    fartx = -5;
+    farty = 0;
+    let currentTop = parseFloat(window.getComputedStyle(head).top);
+    let topmid = currentTop / 40;
+    head.style.top = Math.round(topmid) * 40 + "px";
+}
+
+function changeYL() {
+    farty = -5;
+    fartx = 0;
+    let currentLeft = parseFloat(window.getComputedStyle(head).left);
+    let leftmid = currentLeft / 40;
+    head.style.left = Math.round(leftmid) * 40 + "px";
+}
+
+function changeXK() {
+    fartx = 5;
+    farty = 0;
+    let currentTop = parseFloat(window.getComputedStyle(head).top);
+    let topmid = currentTop / 40;
+    head.style.top = Math.round(topmid) * 40 + "px";
+}
+
+
+function changeYK() {
+    farty = 5;
+    fartx = 0;
+    let currentLeft = parseFloat(window.getComputedStyle(head).left);
+    let leftmid = currentLeft / 40;
+    head.style.left = Math.round(leftmid) * 40 + "px";
+}
+
+function stop() {
+    clearInterval(mainInterval);
+}
+
+document.addEventListener('keydown', function (event) {
+    switch (event.key) {
+        case 'a':
+            changeXL();
+            break;
+        case 'w':
+            changeYL();
+            break;
+        case 's':
+            changeYK();
+            break;
+        case 'd':
+            changeXK();
+            break;
+    }
+});
+
+
+    </script>
+</body>
+
+</html>

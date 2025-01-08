@@ -1,0 +1,98 @@
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+  
+  ol, ul {
+    list-style: none;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .maingrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 360px;
+    width: 360px;
+    background-color: lime;
+    position: relative;
+    
+  }
+
+  .griditem:nth-of-type(even) {
+    background-color: green;
+  }
+
+  body{
+    display: grid;
+    grid-template-rows: 100px 1fr 100px;
+    height: 100vh;
+
+
+  }
+
+  main{
+    display: grid;
+    grid-template-columns: 20% 1fr 20%;
+    background-color: green;
+
+  }
+
+  .gridcont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: green;
+    position: relative;
+    width: 360px;
+    padding-left: 0px;
+    padding-right: 0px;
+    
+    
+    
+    
+    
+  }
+
+  nav{
+    background-color: darkgreen;
+  }
+  
+  aside{
+    background-color: darkgreen;
+  }
+
+  footer{
+    background-color: darkgreen;
+  }
+
+  .snake{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    background-color: orange;
+    top: 175px;
+    left: 245px;
+  }
+
+  .cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
