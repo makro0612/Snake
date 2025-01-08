@@ -21,6 +21,9 @@
             <button onclick="randomApple()">
                 Klikk for rød
             </button>
+            <button onclick="randomAppleStart()">
+                Klikk for mange rød
+            </button>
         </div>
         <div class="set">
 
@@ -142,11 +145,22 @@ let mainInterval = setInterval(move, 10);
 
 let fartx = 0;
 let farty = 0;
+let apples = 0
+
+function randomAppleStart() {
+    for ( let i = 0; i < 5; i++){
+        randomApple()
+    }
+}
 
 function randomApple() {
     let applenr = Math.floor(Math.random() * 81)
     let apple = document.getElementById(applenr.toString())
-    apple.style.backgroundColor = "red"
+    
+    apple.style.backgroundImage = 'url("Bilder/pngtree-summer-cartoon-fruit-apple-png-download-apple-snake-fruit-red-apple-png-image_3939961.jpg")'
+    apple.style.backgroundSize = 'cover'; // Ensures the image covers the div
+    apple.style.backgroundRepeat = 'no-repeat'; // Prevents image repetition
+    apple.style.backgroundPosition = 'center'; // Centers the image
 }
 
 function move() {
@@ -161,39 +175,41 @@ function move() {
     if (newLeft + 30 > 360 || newLeft < 0 || newTop + 30 > 360 || newTop < 0) {
         stop();
     }
+
+    appleCounter()
 }
 
 function changeXL() {
-    fartx = -5;
+    fartx = -3;
     farty = 0;
     let currentTop = parseFloat(window.getComputedStyle(head).top);
     let topmid = currentTop / 40;
-    head.style.top = Math.round(topmid) * 40 + "px";
+    head.style.top = Math.round(topmid) * 40 +5  + "px";
 }
 
 function changeYL() {
-    farty = -5;
+    farty = -3;
     fartx = 0;
     let currentLeft = parseFloat(window.getComputedStyle(head).left);
     let leftmid = currentLeft / 40;
-    head.style.left = Math.round(leftmid) * 40 + "px";
+    head.style.left = Math.round(leftmid) * 40 +5  + "px";
 }
 
 function changeXK() {
-    fartx = 5;
+    fartx = 3;
     farty = 0;
     let currentTop = parseFloat(window.getComputedStyle(head).top);
     let topmid = currentTop / 40;
-    head.style.top = Math.round(topmid) * 40 + "px";
+    head.style.top = Math.round(topmid) * 40 + 5 + "px";
 }
 
 
 function changeYK() {
-    farty = 5;
+    farty = 3;
     fartx = 0;
     let currentLeft = parseFloat(window.getComputedStyle(head).left);
     let leftmid = currentLeft / 40;
-    head.style.left = Math.round(leftmid) * 40 + "px";
+    head.style.left = Math.round(leftmid) * 40 +5 + "px";
 }
 
 function stop() {
@@ -216,6 +232,32 @@ document.addEventListener('keydown', function (event) {
             break;
     }
 });
+
+function appleCounter() {
+    const headRect = head.getBoundingClientRect();
+
+    for (let i = 1; i <= 81; i++) {
+        const cell = document.getElementById(i.toString());
+        const cellRect = cell.getBoundingClientRect();
+
+        // Check if the snake head overlaps with the apple
+        if (
+            cell.style.backgroundImage &&
+            headRect.left < cellRect.right &&
+            headRect.right > cellRect.left &&
+            headRect.top < cellRect.bottom &&
+            headRect.bottom > cellRect.top
+        ) {
+            // Increment apple counter
+            apples++;
+
+            // Remove the apple image from the cell
+            cell.style.backgroundImage = '';
+            randomApple()
+            console.log(`Apples eaten: ${apples}`);
+        }
+    }
+}
 
 
     </script>

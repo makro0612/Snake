@@ -52,6 +52,10 @@ html {
 
   }
 
+  button{
+    outline: none;
+  }
+
   .gridcont{
     display: flex;
     align-items: center;
