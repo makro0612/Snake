@@ -39,7 +39,7 @@ html {
 
   body{
     display: grid;
-    grid-template-rows: 100px 1fr 100px;
+    grid-template-rows: 150px 1fr 150px;
     height: 100vh;
 
 
@@ -101,6 +101,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    
   }
   
   .mid{
