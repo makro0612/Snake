@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/snake.css">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Quicksand:wght@300..700&display=swap');
+      body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: green;
+      flex-direction: column;
+      }
+      h1{
+      font-size: 80px;
+      font-family: "Oxanium";
+      }
+      div{
+      background-color: darkgreen;
+      padding: 30px;
+      border-radius: 20px;
+      color: white
+      }
+      @keyframes pulsate {
+      0%{
+      scale: 0.8;
+      }
+      50%{
+      scale: 1.1;
+      }
+      100%{
+      scale: 0.8;
+      }
+      }
+      .pulsate{
+      animation: pulsate 3s linear 0.5s infinite normal both;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1 >
+        SNAKE
+      </h1>
+    </div>
+    <a href="snake.html">
+    <img class="pulsate" src="Bilder/flat_750x_075_f-pad_750x1000_f8f8f8-removebg-preview.png" alt="">
+    </a>
+  </body>
 </html>
